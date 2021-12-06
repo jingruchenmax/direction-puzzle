@@ -35,7 +35,8 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !anim.isVideoPlay())
+
+        if (Input.GetKeyDown(KeyCode.JoystickButton4) && !anim.isVideoPlay())
         {
             int index = Random.Range(0, 4);
             direction = (Direction)index;
@@ -46,26 +47,27 @@ public class GameController : MonoBehaviour
         if (anim.isVideoPlay() && isFirstReaction == true)
         {
 
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                input = Direction.left;
-                isFirstReaction = false;
-            }
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.JoystickButton0))    //W
             {
                 input = Direction.top;
                 isFirstReaction = false;
             }
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(KeyCode.JoystickButton1))    //A
             {
-                input = Direction.right;
+                input = Direction.left;
                 isFirstReaction = false;
             }
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.JoystickButton2))    //S
             {
                 input = Direction.bottm;
                 isFirstReaction = false;
             }
+            if (Input.GetKeyDown(KeyCode.JoystickButton3))    //D
+            {
+                input = Direction.right;
+                isFirstReaction = false;
+            }
+            
             if (isFirstReaction == false)
             {
                 CompareToRightAnswer();
